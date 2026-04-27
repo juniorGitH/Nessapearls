@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Bloquer uniquement si ces routes existent réellement
+Disallow: /admin/
+Disallow: /private/
+
+# Éviter les fichiers techniques inutiles (optionnel mais propre)
+Disallow: /404.html
+
+# Sitemap
+Sitemap: https://nessapearls.com/sitemap.xml
