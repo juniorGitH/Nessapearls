@@ -3,10 +3,10 @@ import { articleService } from "../utils/services";
 import { assignImagesToArticles, getFallbackImage } from "../utils/productImages";
 import { useCart } from "../context/CartContext";
 
-const CATEGORY_ID = 3; // Bracelets
+const CATEGORY_ID = 6; // Faux Piercings
 const WHATSAPP_NUMBER = "22871080878";
 
-const Bracelets = () => {
+const FauxPiercings = () => {
   const [articles, setArticles] = useState([]);
   const [filteredArticles, setFilteredArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +14,7 @@ const Bracelets = () => {
   const [activeFilter, setActiveFilter] = useState("Tout");
   const { addToCart } = useCart();
 
-  const filters = ["Tout", "Inox", "Rolex", "Cuir", "Jonc", "Couple"];
+  const filters = ["Tout", "Oreille", "Téton", "Septum", "Plug", "Écarteur"];
 
   useEffect(() => {
     loadArticles();
@@ -32,7 +32,7 @@ const Bracelets = () => {
       const articlesWithImages = assignImagesToArticles(data, CATEGORY_ID);
       setArticles(articlesWithImages);
       if (data.length === 0) {
-        setErrorMessage("Aucun bracelet trouvé.");
+        setErrorMessage("Aucun faux piercing trouvé.");
       }
     } catch (error) {
       setErrorMessage(`Erreur de connexion: ${error.message}`);
@@ -51,11 +51,11 @@ const Bracelets = () => {
         const searchText = `${nom} ${carac}`;
         
         switch (filter) {
-          case "Inox": return searchText.includes("inox");
-          case "Rolex": return searchText.includes("rolex");
-          case "Cuir": return searchText.includes("cuir");
-          case "Jonc": return searchText.includes("jonc");
-          case "Couple": return searchText.includes("couple") || searchText.includes("amitié");
+          case "Oreille": return searchText.includes("oreille");
+          case "Téton": return searchText.includes("téton");
+          case "Septum": return searchText.includes("septum");
+          case "Plug": return searchText.includes("plug");
+          case "Écarteur": return searchText.includes("écarteur");
           default: return true;
         }
       });
@@ -64,11 +64,17 @@ const Bracelets = () => {
   };
 
   const handleBuyWhatsApp = (article) => {
-    const message = `🛒 *Commande Nessa Pearls*\n\n` +
-      `📿 Bracelet: ${article.nom}\n` +
-      `💰 Prix: ${formatPrice(article.prix)} FCFA\n` +
-      `📝 Détails: ${article.caracteristique}\n\n` +
-      `Je souhaite commander ce bracelet. Pouvez-vous me confirmer les délais ?`;
+    const message = `🛒 *Commande Nessa Pearls*
+
+` +
+      `✨ Article: ${article.nom}
+` +
+      `💰 Prix: ${formatPrice(article.prix)} FCFA
+` +
+      `📝 Détails: ${article.caracteristique}
+
+` +
+      `Je souhaite commander cet article. Merci de me confirmer la disponibilité.`;
     
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -84,13 +90,13 @@ const Bracelets = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-indigo-50 border border-indigo-100 rounded-full text-indigo-700 text-sm font-bold mb-4 uppercase tracking-widest">
-            📿 ELEGANCE AU POIGNET
+            ✨ STYLE SANS PERÇAGE
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
-            NOS <span className="text-indigo-600">BRACELETS</span>
+            FAUX <span className="text-indigo-600">PIERCINGS</span>
           </h1>
           <p className="text-xl text-slate-500 max-w-3xl mx-auto">
-            Des joncs épurés aux bracelets gravés, trouvez la pièce parfaite pour affirmer votre style.
+            Changez de look en un instant avec nos faux piercings élégants et confortables, sans douleur ni engagement.
           </p>
         </div>
 
@@ -125,18 +131,13 @@ const Bracelets = () => {
             {filteredArticles.map((article) => (
               <div key={article.id} className="group bg-white rounded-2xl overflow-hidden border border-slate-100 transition-all duration-500 hover:shadow-2xl">
                 {/* Image */}
-                <div className="relative aspect-square overflow-hidden bg-slate-50">
+                <div className="relative aspect-[4/5] overflow-hidden bg-slate-50">
                   <img
                     src={article.photo}
                     alt={article.nom}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     onError={(e) => { e.target.src = getFallbackImage(CATEGORY_ID); }}
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-slate-900 text-[10px] font-bold uppercase tracking-widest rounded-full shadow-sm">
-                      Personnalisable
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content */}
@@ -177,4 +178,4 @@ const Bracelets = () => {
   );
 };
 
-export default Bracelets;
+export default FauxPiercings;

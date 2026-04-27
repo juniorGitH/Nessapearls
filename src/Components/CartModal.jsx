@@ -18,7 +18,7 @@ const CartModal = ({ isOpen, onClose }) => {
     message += `\n💰 *Total: ${cartTotal} FCFA*`;
     message += "\n\nJe souhaite valider cette commande. Merci !";
 
-    window.open(`https://wa.me/22893733150?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/22871080878?text=${encodeURIComponent(message)}`, '_blank');
     clearCart();
     onClose();
   };

@@ -1,5 +1,5 @@
 /**
- * Entry point of application - Jewel & Glow Joaillerie de Luxe
+ * Entry point of application - NESSA PEARLS Joaillerie de Luxe
  */
 
 import React from "react";

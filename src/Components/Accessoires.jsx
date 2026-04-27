@@ -4,7 +4,7 @@ import { assignImagesToArticles, getFallbackImage } from "../utils/productImages
 import { useCart } from "../context/CartContext";
 
 const CATEGORY_ID = 5; // Accessoires & Personnalisation
-const WHATSAPP_NUMBER = "22893733150";
+const WHATSAPP_NUMBER = "22871080878";
 
 const Accessoires = () => {
   const [articles, setArticles] = useState([]);
@@ -29,8 +29,7 @@ const Accessoires = () => {
       setIsLoading(true);
       setErrorMessage(null);
       const data = await articleService.getByCategory(CATEGORY_ID);
-      const articlesWithImages = assignImagesToArticles(data, CATEGORY_ID);
-      setArticles(articlesWithImages);
+      setArticles(data);
       if (data.length === 0) {
         setErrorMessage("Aucun accessoire trouvé.");
       }

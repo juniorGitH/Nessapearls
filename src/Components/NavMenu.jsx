@@ -6,7 +6,7 @@ import logoImg from "../images/logo2.png";
 import { useCart } from "../context/CartContext";
 import CartModal from "./CartModal";
 
-const WHATSAPP_NUMBER = "22893733150";
+const WHATSAPP_NUMBER = "22871080878";
 
 const NavMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,6 +46,7 @@ const NavMenu = () => {
     { path: "/bracelets", label: "Bracelets" },
     { path: "/coffrets", label: "Coffrets" },
     { path: "/accessoires", label: "Accessoires" },
+    { path: "/faux-piercings", label: "Piercings" },
   ];
 
   const handleWhatsAppContact = () => {

@@ -3,6 +3,10 @@
  * Images de bijoux en perles de culture et accessoires de luxe
  */
 
+import gourdeImage from "../images/image.png";
+import collierDameImage from "../images/WhatsApp Image 2026-04-27 at 15.02.28.jpeg";
+import bijouxDameImage from "../images/WhatsApp Image 2026-04-27 at 15.09.21.jpeg";
+
 // Bagues - Rings (Pearl focused)
 const ringsImages = [
   "https://images.unsplash.com/photo-1598560917505-59a3ad559071?w=400&q=80", // Pearl ring
@@ -56,6 +60,21 @@ const assignedImages = new Map();
  */
 export const getProductImage = (productId, categoryId) => {
   const cacheKey = `${categoryId}-${productId}`;
+  
+  // Special case for Gourde thermique bois
+  if (productId === 501) {
+    return gourdeImage;
+  }
+  
+  // Collier Dame 💕
+  if (productId === 111) {
+    return collierDameImage;
+  }
+  
+  // Bijoux dame (divers)
+  if (productId === 115) {
+    return bijouxDameImage;
+  }
   
   // Return cached image if already assigned
   if (assignedImages.has(cacheKey)) {
@@ -135,4 +154,3 @@ export default {
   braceletsImages,
   heroImages
 };
-

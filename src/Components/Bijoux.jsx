@@ -4,7 +4,7 @@ import { assignImagesToArticles, getFallbackImage } from "../utils/productImages
 import { useCart } from "../context/CartContext";
 
 const CATEGORY_ID = 1; // Bijoux (Colliers & Bagues)
-const WHATSAPP_NUMBER = "22893733150";
+const WHATSAPP_NUMBER = "22871080878";
 
 const Bijoux = () => {
   const [articles, setArticles] = useState([]);

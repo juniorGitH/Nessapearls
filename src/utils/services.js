@@ -3,6 +3,8 @@
 // Toutes les données sont stockées en localStorage
 // ============================================
 
+import { assignImagesToArticles } from "./productImages";
+
 // Helper pour générer des IDs uniques
 const generateId = () => Date.now() + Math.random().toString(36).substr(2, 9);
 
@@ -25,7 +27,8 @@ const initializeFripDripData = () => {
     { id: 2, nom: "Montres" },
     { id: 3, nom: "Bracelets" },
     { id: 4, nom: "Coffrets & Ensembles" },
-    { id: 5, nom: "Accessoires" }
+    { id: 5, nom: "Accessoires" },
+    { id: 6, nom: "Faux Piercings" }
   ];
 
   const articles = [
@@ -91,15 +94,21 @@ const initializeFripDripData = () => {
     { id: 504, nom: "Stylo personnalisé", prix: 4000, caracteristique: "Gravure nom. Délai : 72h.", categorieId: 5, stock: 50 },
     { id: 505, nom: "Porte-monnaie homme", prix: 7000, caracteristique: "Noir, café. Cuir synthétique.", categorieId: 5, stock: 20 },
     { id: 506, nom: "Porte-clé 🔑", prix: 4000, caracteristique: "Personnalisé. Délai : 72h.", categorieId: 5, stock: 100 },
-    { id: 507, nom: "Faux Piercings (Nez/Septum)", prix: 1000, caracteristique: "L'unité. Sans perçage.", categorieId: 5, stock: 200 },
     { id: 508, nom: "Faux Tatouage", prix: 1500, caracteristique: "Le paquet. Motifs variés.", categorieId: 5, stock: 150 },
+
+    // Catégorie 6: Faux Piercings
+    { id: 601, nom: "Faux piercing oreille", prix: 1500, caracteristique: "L'unité. Sans perçage. Plusieurs styles disponibles.", categorieId: 6, stock: 150 },
+    { id: 602, nom: "Faux piercing téton", prix: 2500, caracteristique: "La paire. Ajustable et confortable.", categorieId: 6, stock: 100 },
+    { id: 603, nom: "Faux piercing septum", prix: 1000, caracteristique: "L'unité. Magnétique ou à clip.", categorieId: 6, stock: 200 },
+    { id: 604, nom: "Faux piercing plug", prix: 2000, caracteristique: "L'unité. Illusion parfaite sans écarter.", categorieId: 6, stock: 120 },
+    { id: 605, nom: "Faux piercing écarteur", prix: 2000, caracteristique: "L'unité. Look évasé sans douleur.", categorieId: 6, stock: 120 },
   ];
 
   // Nettoyage et initialisation forcée
   localStorage.setItem('flipdrip_categories', JSON.stringify(categories));
   
   // Séparer les articles par localStorage pour respecter la structure existante du backend local
-  for(let i=1; i<=5; i++) {
+  for(let i=1; i<=6; i++) {
     const categoryArticles = articles.filter(a => a.categorieId === i);
     localStorage.setItem(`flipdrip_articles_${i}`, JSON.stringify(categoryArticles));
   }
@@ -122,7 +131,7 @@ const initializeFripDripData = () => {
 initializeFripDripData();
 
 // ============================================
-// SERVICES (Le reste du code reste identique)
+// SERVICES
 // ============================================
 
 class AuthService {
@@ -156,11 +165,15 @@ class AuthService {
 export const authService = new AuthService();
 
 class ArticleService {
-  async getByCategory(categoryId) { return JSON.parse(localStorage.getItem(`flipdrip_articles_${categoryId}`) || '[]'); }
+  async getByCategory(categoryId) { 
+    const articles = JSON.parse(localStorage.getItem(`flipdrip_articles_${categoryId}`) || '[]');
+    return assignImagesToArticles(articles, categoryId);
+  }
   async getAll() {
     let all = [];
-    for (let cat = 1; cat <= 5; cat++) {
-      all = [...all, ...JSON.parse(localStorage.getItem(`flipdrip_articles_${cat}`) || '[]')];
+    for (let cat = 1; cat <= 6; cat++) {
+      const articles = JSON.parse(localStorage.getItem(`flipdrip_articles_${cat}`) || '[]');
+      all = [...all, ...assignImagesToArticles(articles, cat)];
     }
     return all;
   }
@@ -180,7 +193,7 @@ class ArticleService {
     return { success: false, error: "Article non trouvé" };
   }
   async delete(id) {
-    for (let cat = 1; cat <= 5; cat++) {
+    for (let cat = 1; cat <= 6; cat++) {
       const articles = JSON.parse(localStorage.getItem(`flipdrip_articles_${cat}`) || '[]');
       const filtered = articles.filter(a => a.id !== id);
       if (filtered.length !== articles.length) { localStorage.setItem(`flipdrip_articles_${cat}`, JSON.stringify(filtered)); return { success: true }; }
@@ -196,7 +209,7 @@ class ContentService {
     return {
       home: { title: "NESSA PEARLS", subtitle: "L'éclat intemporel", description: "Bijoux personnalisés, montres et coffrets d'exception." },
       aPropos: { title: "À Propos", content: "Nessa Pearls célèbre l'élégance à travers la personnalisation." },
-      contact: { phone: "+228 93 73 31 50", email: "contact@nessapearls.com", whatsapp: "22893733150" },
+      contact: { phone: "+228 71 08 08 78", email: "contact@nessapearls.com", whatsapp: "22871080878" },
     };
   }
 }

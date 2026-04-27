@@ -23,7 +23,7 @@ const Home = () => {
 
   const handleWhatsAppOrder = (product) => {
     const message = `Bonjour, je souhaite commander : ${product.nom} au prix de ${product.prix} CFA.`;
-    window.open(`https://wa.me/22893733150?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/22871080878?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const formatPrice = (price) => {

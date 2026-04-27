@@ -23,8 +23,7 @@ const ConditionsGeneralesUtilisation = () => {
       <h2 className="article-title">Article 1 : Objet</h2>
       <p className="paragraph">
         Les présentes Conditions Générales d'Utilisation (CGU) ont pour objet de définir les modalités 
-        de mise à disposition du site <strong>Jewel & Glow</strong> et des services associés, 
-        ainsi que les conditions d'accès et d'utilisation desdits services par tout Utilisateur.
+                 de mise à disposition du site <strong>NESSA PEARLS</strong> et des services associés,        ainsi que les conditions d'accès et d'utilisation desdits services par tout Utilisateur.
       </p>
       <p className="paragraph">
         En accédant et utilisant ce site, l'Utilisateur accepte sans réserve l'ensemble des 

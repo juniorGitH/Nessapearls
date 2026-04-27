@@ -16,9 +16,9 @@ import Montres from "./Components/Montres";
 import Bracelets from "./Components/Bracelets";
 import Coffrets from "./Components/Coffrets";
 import Accessoires from "./Components/Accessoires";
+import FauxPiercings from "./Components/FauxPiercings";
 import APropos from "./Components/APropos";
-import AdminLogin from "./Components/AdminLogin";
-import ProductAdmin from "./Components/ProductAdmin";
+import SearchResults from "./Components/SearchResults";
 
 // Legal Pages
 import MentionsLegales from "./Components/MentionsLegales";
@@ -42,15 +42,6 @@ const Layout = ({ children }) => {
   );
 };
 
-// Layout sans NavMenu/Footer pour pages admin
-const AdminLayout = ({ children }) => {
-  return (
-    <div className="min-h-screen bg-stone-50">
-      {children}
-    </div>
-  );
-};
-
 const App = () => {
   return (
     <CartProvider>
@@ -65,13 +56,13 @@ const App = () => {
           <Route path="/bracelets" element={<Layout><Bracelets /></Layout>} />
           <Route path="/coffrets" element={<Layout><Coffrets /></Layout>} />
           <Route path="/accessoires" element={<Layout><Accessoires /></Layout>} />
+          <Route path="/faux-piercings" element={<Layout><FauxPiercings /></Layout>} />
           
           {/* À Propos */}
           <Route path="/apropos" element={<Layout><APropos /></Layout>} />
           
-          {/* Administration */}
-          <Route path="/admin" element={<AdminLayout><AdminLogin /></AdminLayout>} />
-          <Route path="/admin/dashboard" element={<Layout><ProductAdmin /></Layout>} />
+          {/* Recherche */}
+          <Route path="/search" element={<Layout><SearchResults /></Layout>} />
           
           {/* Pages légales */}
           <Route path="/mentions-legales" element={<Layout><MentionsLegales /></Layout>} />
