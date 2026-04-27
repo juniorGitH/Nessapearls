@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Nessa Pearls Custom utilities - Blue & Violet Palette */
+@layer utilities {
+  .gradient-primary {
+    @apply bg-gradient-to-r from-indigo-600 via-violet-600 to-blue-600;
+  }
+
+  .gradient-hero {
+    @apply bg-gradient-to-br from-slate-50 via-white to-indigo-50;
+  }
+
+  .gradient-fire {
+    @apply bg-gradient-to-r from-blue-700 to-indigo-800;
+  }
+
+  .gradient-neon {
+    @apply bg-gradient-to-r from-violet-100 via-indigo-50 to-blue-100;
+  }
+
+  .gradient-urban {
+    @apply bg-gradient-to-r from-slate-100 to-slate-50;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-700 via-violet-700 to-blue-800;
+  }
+
+  .text-gradient-fire {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-800 via-indigo-900 to-slate-900;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+  }
+
+  .card-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(79,70,229,0.12)];
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-slate-100 bg-white text-gray-900 rounded-xl focus:border-indigo-500 focus:outline-none transition-colors placeholder-gray-400;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-700 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-violet-800 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent text-indigo-700 font-bold rounded-xl border-2 border-indigo-200 hover:border-indigo-600 hover:text-indigo-800 transition-all duration-300;
+  }
+
+  .btn-dark {
+    @apply px-6 py-3 bg-slate-900 text-white font-bold rounded-xl border-2 border-slate-800 hover:border-indigo-500 hover:text-indigo-400 transition-all duration-300;
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 10px rgba(99,102,241,0.3);
+  }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Pulse animation for skeleton loaders */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Mobile-first responsive improvements */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Touch-friendly targets */
+@media (hover: none) and (pointer: coarse) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .card-glow:hover {
+    box-shadow: none;
+  }
+}
+
+/* Smooth scrolling for all devices */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar for desktop */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f8fafc;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #4f46e5, #8b5cf6);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #4338ca, #7c3aed);
+  }
+}
