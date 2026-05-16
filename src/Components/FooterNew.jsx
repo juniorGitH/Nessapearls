@@ -146,7 +146,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center text-stone-400 text-sm">
             <p>© {currentYear} <span className="text-amber-700 font-bold">NESSA PEARLS</span>. Tous droits réservés.</p>
-            <p className="mt-1">Élégance et Tradition</p>
+            <p className="mt-1">Développé par Emmanuel AMELA</p>
           </div>
         </div>
       </div>

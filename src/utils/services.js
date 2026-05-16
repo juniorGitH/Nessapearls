@@ -35,8 +35,8 @@ const initializeFripDripData = () => {
     // Catégorie 1: Bijoux (Colliers & Bagues)
     { id: 101, nom: "Collier prénom 😍🦋💕", prix: 3500, caracteristique: "Délai : 72h. Personnalisation incluse.", categorieId: 1, stock: 50 },
     { id: 102, nom: "Collier de couple ou d'amitié", prix: 2500, caracteristique: "Duo de colliers assortis.", categorieId: 1, stock: 30 },
-    { id: 103, nom: "Collier personnalisé (Standard)", prix: 6000, caracteristique: "6k (1 face) / 7k (2 faces).", categorieId: 1, stock: 40 },
-    { id: 104, nom: "Collier personnalisable (Luxe)", prix: 8000, caracteristique: "Finition premium. Délai : 72h.", categorieId: 1, stock: 20 },
+    { id: 103, nom: "Collier personnalisable homme /femme", prix: 6000, caracteristique: "6000f (1 face) / 7000f (2 faces). Couleurs: or, noir, argent. Délai: 72h. Express 24h (+2000f).", categorieId: 1, stock: 40 },
+    { id: 104, nom: "Collier personnalisable", prix: 8000, caracteristique: "Finition premium. Délai : 72h.", categorieId: 1, stock: 20 },
     { id: 105, nom: "Collier message caché", prix: 6500, caracteristique: "Message secret gravé. Délai : 72h.", categorieId: 1, stock: 15 },
     { id: 106, nom: "Collier photo 🤩", prix: 15000, caracteristique: "Gravure photo haute précision.", categorieId: 1, stock: 10 },
     { id: 107, nom: "Collier qr code (H/F)", prix: 9000, caracteristique: "9k (court) / 10k (long). Scan fonctionnel.", categorieId: 1, stock: 12 },
@@ -78,14 +78,16 @@ const initializeFripDripData = () => {
 
     // Catégorie 4: Coffrets & Ensembles
     { id: 401, nom: "Coffret Homme 🧔", prix: 28000, caracteristique: "Le cadeau complet pour lui.", categorieId: 4, stock: 5 },
-    { id: 402, nom: "Coffret Homme (Casio + Rolex)", prix: 20000, caracteristique: "Montre Casio + bracelet Rolex.", categorieId: 4, stock: 10 },
+    { id: 402, nom: "Coffret Homme (Casio + Rolex)", prix: 20000, caracteristique: "Possibilité de graver une inscription derrière le bracelet. Couleurs: or, argent, noir. Production: 4 jours.", categorieId: 4, stock: 10 },
     { id: 403, nom: "Pack Princess 👑💕", prix: 12000, caracteristique: "Parfum, brume, bijoux.", categorieId: 4, stock: 15 },
     { id: 404, nom: "Coffret Dame (Montre + Bracelet)", prix: 15000, caracteristique: "Plusieurs gammes 15k/20k.", categorieId: 4, stock: 12 },
     { id: 405, nom: "Ensemble Collier + Bracelet", prix: 7500, caracteristique: "Plusieurs modèles disponibles.", categorieId: 4, stock: 20 },
     { id: 406, nom: "Ensemble Bracelet Rolex + Collier", prix: 12000, caracteristique: "L'élégance coordonnée.", categorieId: 4, stock: 8 },
     { id: 407, nom: "Ensemble Porte-clé + Bracelet + Stylo", prix: 14500, caracteristique: "Délai : 4 jours.", categorieId: 4, stock: 10 },
     { id: 408, nom: "Ensemble Porte-clé + Bracelet inox", prix: 10500, caracteristique: "Délai : 4 jours.", categorieId: 4, stock: 10 },
-    { id: 409, nom: "Ensemble Dame (Vêtements)", prix: 5000, caracteristique: "Ensemble stylé 5k/8k.", categorieId: 4, stock: 15 },
+    { id: 409, nom: "Ensemble Dame (5000f)", prix: 5000, caracteristique: "Ensemble stylé.", categorieId: 4, stock: 15 },
+    { id: 410, nom: "Ensemble Dame (7000f)", prix: 7000, caracteristique: "Ensemble chic.", categorieId: 4, stock: 15 },
+    { id: 411, nom: "Ensemble Dame (8000f)", prix: 8000, caracteristique: "Ensemble luxe.", categorieId: 4, stock: 15 },
 
     // Catégorie 5: Accessoires & Personnalisation
     { id: 501, nom: "Gourde thermique bois", prix: 10000, caracteristique: "Personnalisée avec nom/logo.", categorieId: 5, stock: 25 },
@@ -98,10 +100,11 @@ const initializeFripDripData = () => {
 
     // Catégorie 6: Faux Piercings
     { id: 601, nom: "Faux piercing oreille", prix: 1500, caracteristique: "L'unité. Sans perçage. Plusieurs styles disponibles.", categorieId: 6, stock: 150 },
-    { id: 602, nom: "Faux piercing téton", prix: 2500, caracteristique: "La paire. Ajustable et confortable.", categorieId: 6, stock: 100 },
     { id: 603, nom: "Faux piercing septum", prix: 1000, caracteristique: "L'unité. Magnétique ou à clip.", categorieId: 6, stock: 200 },
-    { id: 604, nom: "Faux piercing plug", prix: 2000, caracteristique: "L'unité. Illusion parfaite sans écarter.", categorieId: 6, stock: 120 },
-    { id: 605, nom: "Faux piercing écarteur", prix: 2000, caracteristique: "L'unité. Look évasé sans douleur.", categorieId: 6, stock: 120 },
+    { id: 604, nom: "Faux piercing nez (Simple)", prix: 1000, caracteristique: "L'unité. Look discret sans perçage.", categorieId: 6, stock: 60 },
+    { id: 607, nom: "Faux piercing nez (Double)", prix: 1000, caracteristique: "L'unité. Finition élégante.", categorieId: 6, stock: 60 },
+    { id: 605, nom: "Faux piercing nombril (Luxe)", prix: 2000, caracteristique: "L'unité. Design perlé élégant.", categorieId: 6, stock: 60 },
+    { id: 606, nom: "Faux piercing nombril (Cristal)", prix: 2000, caracteristique: "L'unité. Finition brillante sans perçage.", categorieId: 6, stock: 60 },
   ];
 
   // Nettoyage et initialisation forcée

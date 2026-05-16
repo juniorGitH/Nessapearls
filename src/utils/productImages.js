@@ -6,6 +6,20 @@
 import gourdeImage from "../images/image.png";
 import collierDameImage from "../images/WhatsApp Image 2026-04-27 at 15.02.28.jpeg";
 import bijouxDameImage from "../images/WhatsApp Image 2026-04-27 at 15.09.21.jpeg";
+import nombrilLuxeImage from "../images/WhatsApp Image 2026-04-27 at 10.43.28.jpeg";
+import nombrilCristalImage from "../images/WhatsApp Image 2026-04-27 at 10.43.37.jpeg";
+import nezSimpleImage from "../images/WhatsApp Image 2026-04-27 at 11.07.34.jpeg";
+import nezDoubleImage from "../images/WhatsApp Image 2026-04-27 at 10.43.38.jpeg";
+import septumSeptImage from "../images/WhatsApp Image 2026-04-27 at 10.43.39.jpeg";
+import septumMagnImage from "../images/WhatsApp Image 2026-04-27 at 10.43.37 (1).jpeg";
+import ensembleDame1 from "../images/image1.png";
+import ensembleDame2 from "../images/image2.png";
+import ensembleDame3 from "../images/image3.png";
+import coffretHommeImage from "../images/image4.png";
+import collierPrenomImage from "../images/image5.png";
+import collierCoupleImage from "../images/image6.png";
+import collierLuxeImage from "../images/image7.png";
+import collierStandardImage from "../images/image8.png";
 
 // Bagues - Rings (Pearl focused)
 const ringsImages = [
@@ -66,6 +80,20 @@ export const getProductImage = (productId, categoryId) => {
     return gourdeImage;
   }
   
+  // Collier prénom 😍🦋💕
+  if (productId === 101) {
+    return collierPrenomImage;
+  }
+  if (productId === 102) {
+    return collierCoupleImage;
+  }
+  if (productId === 103) {
+    return collierStandardImage;
+  }
+  if (productId === 104) {
+    return collierLuxeImage;
+  }
+  
   // Collier Dame 💕
   if (productId === 111) {
     return collierDameImage;
@@ -74,6 +102,43 @@ export const getProductImage = (productId, categoryId) => {
   // Bijoux dame (divers)
   if (productId === 115) {
     return bijouxDameImage;
+  }
+
+  // Ensemble Dame
+  if (productId === 409) {
+    return ensembleDame1;
+  }
+  if (productId === 410) {
+    return ensembleDame2;
+  }
+  if (productId === 411) {
+    return ensembleDame3;
+  }
+
+  // Coffret Homme
+  if (productId === 402) {
+    return coffretHommeImage;
+  }
+  
+  // Faux piercing septum
+  if (productId === 603) {
+    return septumSeptImage;
+  }
+  
+  // Faux piercing nombril
+  if (productId === 605) {
+    return nombrilLuxeImage;
+  }
+  if (productId === 606) {
+    return nombrilCristalImage;
+  }
+  
+  // Faux piercing nez
+  if (productId === 604) {
+    return nezSimpleImage;
+  }
+  if (productId === 607) {
+    return nezDoubleImage;
   }
   
   // Return cached image if already assigned

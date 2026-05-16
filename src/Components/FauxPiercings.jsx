@@ -14,7 +14,7 @@ const FauxPiercings = () => {
   const [activeFilter, setActiveFilter] = useState("Tout");
   const { addToCart } = useCart();
 
-  const filters = ["Tout", "Oreille", "Téton", "Septum", "Plug", "Écarteur"];
+  const filters = ["Tout", "Oreille", "Septum", "Nez", "Nombril"];
 
   useEffect(() => {
     loadArticles();
@@ -52,10 +52,9 @@ const FauxPiercings = () => {
         
         switch (filter) {
           case "Oreille": return searchText.includes("oreille");
-          case "Téton": return searchText.includes("téton");
           case "Septum": return searchText.includes("septum");
-          case "Plug": return searchText.includes("plug");
-          case "Écarteur": return searchText.includes("écarteur");
+          case "Nez": return searchText.includes("nez");
+          case "Nombril": return searchText.includes("nombril");
           default: return true;
         }
       });
